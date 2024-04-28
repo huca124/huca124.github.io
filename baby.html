@@ -1,0 +1,89 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>宝宝未来个头</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="black" name="apple-mobile-web-app-status-bar-style">
+        <meta content="telephone=no" name="format-detection">
+        <link href="baby.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <section class="aui-flexView">
+            <header class="aui-navBar aui-navBar-fixed">
+                <div class="aui-center">
+                    <span class="aui-center-title">宝宝未来个头</span>
+                </div>
+            </header>
+            <section class="aui-scrollView">
+                <div class="aui-sign-form">
+                        <div class="aui-flex">
+                        爸爸身高：
+                            <i class="icon icon-phone"></i>
+                            <div class="aui-flex-box">
+                                <input type="number" id="ht1" autocomplete="off" placeholder="">
+                            </div>
+							<div class="aui-code">
+                                <input type="button" class="btn btn-default" value="厘米" onclick="void()">
+                            </div>
+                        </div>
+                        <div class="aui-flex">
+						妈妈身高：
+                            <i class="icon icon-code"></i>
+                            <div class="aui-flex-box">
+                                <input type="number" id="ht2" autocomplete="off" placeholder="">
+                            </div>
+                            <div class="aui-code">
+                                <input type="button" class="btn btn-default" value="厘米" onclick="void()">
+                            </div>
+                        </div>
+                        <button class="aui-sign-login" onclick="binding()">点击查询</button>
+                        <div class="aui-flex aui-flex-clear">
+                            <div class="aui-flex-box">
+                                儿子身高：<span id="rs1" class="red"></span>
+                            </div>
+                        </div>
+                        <div class="aui-flex aui-flex-clear">
+                            <div class="aui-flex-box">
+                                女儿身高：<span id="rs2" class="red"></span>
+                            </div>
+                        </div>
+
+                </div>
+            </section>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+
+            function sendMessage2() {
+                var phone = $.trim($('#phone1').val());
+                if (!phoneReg.test(phone)) {
+                    return false;
+                }
+            }
+
+            function binding() {
+				$('#rs1').html("");
+				$('#rs2').html("");
+
+                var v1 = $.trim($('#ht1').val());
+                var v2 = $.trim($('#ht2').val());
+				if (v1 == "" || v1 < 100 || v1 > 300) {
+					$('#ht1').val("");
+					return;
+				}
+				if (v2 == "" || v2 < 100 || v2 > 300) {
+					$('#ht2').val("");
+					return;
+				}
+
+					var r1 = Math.floor((v1 * 1.06 + v2 * 1.06) / 2);
+					var r2 = Math.floor((v1 * 0.91 + v2 * 1.02) / 2);
+				$('#rs1').html(r1);
+				$('#rs2').html(r2);
+
+            }
+        </script>
+    </body>
+</html>
