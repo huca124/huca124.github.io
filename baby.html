@@ -48,20 +48,12 @@
                                 女儿身高：<span id="rs2" class="red"></span>
                             </div>
                         </div>
-
                 </div>
             </section>
         </section>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript">
-            var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
-
-            function sendMessage2() {
-                var phone = $.trim($('#phone1').val());
-                if (!phoneReg.test(phone)) {
-                    return false;
-                }
-            }
+            console.log('2024/4/28 16:46');
 
             function binding() {
 				$('#rs1').html("");
