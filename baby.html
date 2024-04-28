@@ -80,6 +80,12 @@
 
 					var r1 = Math.floor((v1 * 1.06 + v2 * 1.06) / 2);
 					var r2 = Math.floor((v1 * 0.91 + v2 * 1.02) / 2);
+					if (r1 < v1) {
+						r1 = v1;
+					}
+					if (r2 <= v2) {
+						r2 = v2 + 1;
+					}
 				$('#rs1').html(r1);
 				$('#rs2').html(r2);
 
