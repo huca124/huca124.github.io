@@ -69,11 +69,13 @@
 
                 var v1 = $.trim($('#ht1').val());
                 var v2 = $.trim($('#ht2').val());
-				if (v1 == "" || v1 < 100 || v1 > 300) {
+				v1 = parseInt(v1);
+				v2 = parseInt(v2);
+				if (v1 < 100 || v1 > 300) {
 					$('#ht1').val("");
 					return;
 				}
-				if (v2 == "" || v2 < 100 || v2 > 300) {
+				if (v2 < 100 || v2 > 300) {
 					$('#ht2').val("");
 					return;
 				}
